@@ -1,0 +1,126 @@
+basePath: /api
+info:
+  contact: {}
+paths:
+  /health:
+    get:
+      description: healthCheck
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: healthCheck example
+      tags:
+      - Health Check
+  /todos:
+    get:
+      description: get Todo list
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: get Todo list
+      tags:
+      - Todo API
+    post:
+      consumes:
+      - application/json
+      description: save Todo
+      parameters:
+      - description: '{}'
+        in: body
+        name: request
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: save Todo
+      tags:
+      - Todo API
+  /todos/{id}:
+    delete:
+      description: delete Todo
+      parameters:
+      - description: Todo ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: delete Todo
+      tags:
+      - Todo API
+    get:
+      description: get Todo
+      parameters:
+      - description: Todo ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: get Todo
+      tags:
+      - Todo API
+    put:
+      consumes:
+      - application/json
+      description: modify Todo
+      parameters:
+      - description: Todo ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: '{}'
+        in: body
+        name: request
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: modify Todo
+      tags:
+      - Todo API
+  /todos/{id}/done:
+    put:
+      description: modify Todo
+      parameters:
+      - description: Todo ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: modify Todo
+      tags:
+      - Todo API
+swagger: "2.0"
